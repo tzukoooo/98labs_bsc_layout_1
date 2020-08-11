@@ -13,45 +13,31 @@ const Payment = (props) => {
     marginBottom: "1rem",
   };
 
+  const paymentTypes = ["Credit Card", "Gift Card", "PayPal"];
+
   return (
     <>
       <Header as="h3">Payment method</Header>
       <section style={paymentStyle}>
         <Grid columns={3}>
           <Grid.Row>
-            <Grid.Column>
-              <Button
-                fluid
-                onClick={() => setMethod("credit")}
-                color={method === "credit" ? "blue" : undefined}
-              >
-                Credit Card
-              </Button>
-            </Grid.Column>
-            <Grid.Column>
-              <Button
-                fluid
-                onClick={() => setMethod("gift")}
-                color={method === "gift" ? "blue" : undefined}
-              >
-                Gift Card
-              </Button>
-            </Grid.Column>
-            <Grid.Column>
-              <Button
-                fluid
-                onClick={() => setMethod("paypal")}
-                color={method === "paypal" ? "blue" : undefined}
-              >
-                PayPal
-              </Button>
-            </Grid.Column>
+            {paymentTypes.map((payType) => (
+              <Grid.Column>
+                <Button
+                  fluid
+                  onClick={() => setMethod(payType)}
+                  color={method === payType ? "blue" : undefined}
+                >
+                  {payType}
+                </Button>
+              </Grid.Column>
+            ))}
           </Grid.Row>
         </Grid>
 
-        {method === "credit" && <CreditCard />}
-        {method === "gift" && <GiftCard />}
-        {method === "paypal" && <PayPal />}
+        {method === "Credit Card" && <CreditCard />}
+        {method === "Gift Card" && <GiftCard />}
+        {method === "PayPal" && <PayPal />}
       </section>
     </>
   );

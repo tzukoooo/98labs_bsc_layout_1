@@ -8,7 +8,7 @@ const PlaceOrder = (props) => {
   const validateForm = () => {
     if (!check) setCheckValid(false);
     switch (method) {
-      case "credit":
+      case "Credit Card":
         const {
           setCardNumberError,
           setCardMonthError,

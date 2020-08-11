@@ -58,7 +58,7 @@ const ShippingMethod = (props) => {
 };
 
 const Checkout = () => {
-  const [method, setMethod] = useState("credit");
+  const [method, setMethod] = useState("Credit Card");
   const [check, setCheck] = useState(false);
   const [checkValid, setCheckValid] = useState(true);
   const { cardInfo, errorCardFn, items, shipping } = useGlobalContext();
